@@ -1,3 +1,4 @@
+import { io as client } from 'socket.io-client';
 const io = require('socket.io')({
   cors: {
     origin: '*',
@@ -13,14 +14,23 @@ io.on('connection', socket => {
   });
 
   socket.on('message', data => {
-    console.log(data, messages);
     messages.push(data);
     socket.broadcast.emit('message', data);
   });
 });
 
-io.listen(5000);
-
 export default function handler(req, res) {
-  res.status(200).json({ name: 'Next.js' });
+  fetch(
+    `http://localhost:5000/socket.io/?EIO=4&transport=polling&t=NkAo19-`
+  ).then(
+    result => {
+      console.log(result);
+    },
+    error => {
+      io.listen(5000);
+      console.log(error);
+    }
+  );
+
+  res.status(200).json({ name: 'Started socket' });
 }

@@ -8,6 +8,11 @@ export const Message = ({ messages, handleSend }: IMessage) => {
     setValue(event.target.value);
   };
 
+  const handleSendMessage = () => {
+    handleSend(value);
+    setValue('');
+  };
+
   return (
     <div>
       <ul>
@@ -24,7 +29,7 @@ export const Message = ({ messages, handleSend }: IMessage) => {
           placeholder="Write your message!"
           onChange={handleChange}
         />
-        <button onClick={() => handleSend(value)}>Send</button>
+        <button onClick={handleSendMessage}>Send</button>
       </div>
     </div>
   );

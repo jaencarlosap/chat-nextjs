@@ -11,16 +11,18 @@ const Index = () => {
   const [messages, setMessages] = React.useState<IpropsMessage[]>([]);
 
   React.useEffect(() => {
-    try {
-      if (!socket) return;
+    listenSocket();
+  });
 
-      socket.emit('messages');
+  const listenSocket = () => {
+    if (!socket) return;
 
-      socket.on('messages', data => {
-        setMessages(data);
-      });
-    } catch (error) {}
-  }, [socket]);
+    socket.emit('messages');
+
+    socket.on('messages', data => {
+      setMessages(data);
+    });
+  };
 
   const handleMessage = (message: IpropsMessage) => {
     setMessages(prev => [...prev, message]);
