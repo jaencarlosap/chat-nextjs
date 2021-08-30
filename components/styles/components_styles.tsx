@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { IHome, IInput } from 'interfaces/styles';
+
 export const Wrapper = styled.div`
   background-color: #cccccc;
   background-image: url('/icons/floating-cogs.svg');
@@ -18,13 +20,20 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const ListMessage = styled.div`
-  width: 95%;
-  height: 50%;
+export const RoundContainer = styled.div<IHome>`
+  width: ${props => (props.width ? props.width : '95%')};
+  height: ${props => (props.height ? props.height : '50%')};
   overflow-y: auto;
   padding: 10px;
   border-radius: 20px;
   background-color: #f5f5f5;
+  ${props =>
+    props.align &&
+    css`
+      align-items: ${props.align};
+      text-align: ${props.align};
+      justify-content: ${props.align};
+    `}
 `;
 
 export const HasMessage = styled.div`
@@ -37,16 +46,23 @@ export const HasMessage = styled.div`
 
 export const InputContainer = styled.div`
   width: 100%;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const InputMessage = styled.input`
+export const InputMessage = styled.input<IInput>`
   width: 90%;
   height: 2em;
   padding: 5px;
   border-radius: 20px;
+  ${props =>
+    props.fontSize &&
+    css`
+      font-size: ${props.fontSize};
+      text-transform: capitalize;
+    `}
 
   &:focus {
     outline: none;
@@ -54,10 +70,15 @@ export const InputMessage = styled.input`
 `;
 
 export const SendButton = styled.button`
+  margin-left: 10px;
   padding: 0.5em;
   border-radius: 2em;
-  border-color: #d3d3d3;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000000;
+  border-color: #d3d3d3;
   background-color: #ffffff;
 
   &:focus {

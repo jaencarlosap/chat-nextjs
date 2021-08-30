@@ -1,45 +1,9 @@
 import React from 'react';
 
-import { Message } from 'components/messages';
-import { IpropsMessage } from 'interfaces/general';
-import { useSocket } from 'hooks/useSocket';
+import { Home } from 'components/home';
 
 const Index = () => {
-  const server = process.env.SERVER_SOCKET || 'localhost';
-  const port = process.env.SERVER_SOCKET || '5000';
-  const socket = useSocket(`${server}:${port}`);
-  const [messages, setMessages] = React.useState<IpropsMessage[]>([]);
-
-  React.useEffect(() => {
-    listenSocket();
-  });
-
-  const listenSocket = () => {
-    if (!socket) return;
-
-    socket.emit('messages');
-
-    socket.on('messages', data => {
-      setMessages(data);
-    });
-  };
-
-  const handleMessage = (message: IpropsMessage) => {
-    setMessages(prev => [...prev, message]);
-  };
-
-  const handleSend = value => {
-    const message: IpropsMessage = {
-      id: `${new Date().getTime()}`,
-      value,
-    };
-
-    socket.emit('message', message);
-
-    handleMessage(message);
-  };
-
-  return <Message messages={messages} handleSend={handleSend} />;
+  return <Home />;
 };
 
 export default Index;

@@ -4,13 +4,13 @@ import Image from 'next/image';
 import { IMessage } from 'interfaces/general';
 import {
   Wrapper,
-  ListMessage,
+  RoundContainer,
   InputMessage,
   SendButton,
   Container,
   HasMessage,
   InputContainer,
-} from 'components/components_styles';
+} from 'components/styles/components_styles';
 
 export const Message = ({ messages, handleSend }: IMessage) => {
   const [value, setValue] = React.useState('');
@@ -37,13 +37,13 @@ export const Message = ({ messages, handleSend }: IMessage) => {
   return (
     <Wrapper>
       <Container>
-        <ListMessage>
+        <RoundContainer>
           {messages.map(message => (
             <HasMessage key={message.id}>
-              <span>{message.value}</span>
+              <span>{`${message?.user}: ${message.value}`}</span>
             </HasMessage>
           ))}
-        </ListMessage>
+        </RoundContainer>
         <InputContainer>
           <InputMessage
             ref={refInputText}

@@ -1,5 +1,6 @@
 export type IpropsMessage = {
   id?: string;
+  user: string;
   value?: string;
 };
 

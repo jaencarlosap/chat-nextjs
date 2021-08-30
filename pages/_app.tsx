@@ -1,4 +1,6 @@
+import React from 'react';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -16,11 +18,28 @@ const theme = {
 };
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    let user = localStorage.getItem('userName');
+
+    if (user && router.pathname != '/chat') {
+      router.replace('/chat');
+    } else if (!user && router.pathname != '/') {
+      router.replace('/');
+    }
+
+    setTimeout(() => {
+      setLoading(true);
+    }, 1000);
+  }, []);
+
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        {loading && router.isReady && <Component {...pageProps} />}
       </ThemeProvider>
     </>
   );
