@@ -38,11 +38,15 @@ export const Message = ({ messages, handleSend }: IMessage) => {
     <Wrapper>
       <Container>
         <RoundContainer>
-          {messages.map(message => (
-            <HasMessage key={message.id}>
-              <span>{`${message?.user}: ${message.value}`}</span>
-            </HasMessage>
-          ))}
+          {messages.map(message => {
+            let name = message.user ? message.user : 'Anónimo';
+
+            return (
+              <HasMessage key={message.id}>
+                <span>{`${name}: ${message.value}`}</span>
+              </HasMessage>
+            );
+          })}
         </RoundContainer>
         <InputContainer>
           <InputMessage

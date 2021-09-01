@@ -5,9 +5,8 @@ import { IpropsMessage } from 'interfaces/general';
 import { useSocket } from 'hooks/useSocket';
 
 const Chat = () => {
-  const server = process.env.SERVER_SOCKET || 'localhost';
-  const port = process.env.SERVER_SOCKET || '5000';
-  const socket = useSocket(`${server}:${port}`);
+  const server = process.env.SERVER_SOCKET || 'localhost:5000';
+  const socket = useSocket(`${server}`);
   const [messages, setMessages] = React.useState<IpropsMessage[]>([]);
 
   React.useEffect(() => {

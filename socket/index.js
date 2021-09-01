@@ -1,5 +1,7 @@
-import { io } from 'socket/config';
-import { messages, setMessage } from 'socket/temp_db';
+const { io } = require('./config.js');
+const { messages, setMessage } = require('./temp_db.js');
+
+const PORT = process.env.SERVER_PORT_SOCKET || 5000;
 
 io.on('connection', socket => {
   socket.on('messages', () => {
@@ -12,4 +14,6 @@ io.on('connection', socket => {
   });
 });
 
-export { io };
+io.listen(PORT);
+
+console.log(`server runing on port ${PORT}`);
