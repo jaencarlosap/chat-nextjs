@@ -19,7 +19,9 @@ const Chat = () => {
     socket.emit('messages');
 
     socket.on('messages', data => {
-      setMessages(data);
+      if (JSON.stringify(data) != JSON.stringify(messages)) {
+        setMessages(data);
+      }
     });
   };
 
