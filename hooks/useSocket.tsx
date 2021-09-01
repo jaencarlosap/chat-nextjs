@@ -10,17 +10,6 @@ export const useSocket = (url: string) => {
     });
 
     if (socketIo && socketIo.disconnected) {
-      fetch(`/api/startSocket`)
-        .then(res => res.json())
-        .then(
-          result => {
-            console.log(result);
-          },
-          error => {
-            console.log(error);
-          }
-        );
-
       socketIo = io(url, {
         transports: ['websocket', 'polling'],
       });

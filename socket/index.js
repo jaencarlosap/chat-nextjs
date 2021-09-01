@@ -1,7 +1,7 @@
-const { io } = require('./config.js');
+const { io, httpServer } = require('./config.js');
 const { messages, setMessage } = require('./temp_db.js');
 
-const PORT = process.env.SERVER_PORT_SOCKET || 5000;
+const PORT = process.env.PORT || 5000;
 
 io.on('connection', socket => {
   socket.on('messages', () => {
@@ -14,6 +14,6 @@ io.on('connection', socket => {
   });
 });
 
-io.listen(PORT);
+httpServer.listen(PORT);
 
 console.log(`server runing on port ${PORT}`);
