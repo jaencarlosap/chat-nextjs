@@ -1,7 +1,8 @@
 export type IpropsMessage = {
-  id?: string;
+  id: string;
   user: string;
-  value?: string;
+  time: string;
+  value: string;
 };
 
 export type IMessage = {

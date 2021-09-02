@@ -8,6 +8,7 @@ import {
   InputMessage,
   RoundContainer,
   SendButton,
+  Title,
   Wrapper,
 } from 'components/styles/components_styles';
 
@@ -34,8 +35,8 @@ export const Home = () => {
   return (
     <Wrapper>
       <Container>
-        <RoundContainer height="auto" width="50%" align="center">
-          <h1>¡Welcome to the Chat!</h1>
+        <RoundContainer height="auto" width="70%" align="center">
+          <Title>¡Welcome to the Next Chat!</Title>
           <InputContainer>
             <InputMessage
               ref={refInputText}

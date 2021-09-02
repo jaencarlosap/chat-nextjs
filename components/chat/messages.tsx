@@ -11,6 +11,7 @@ import {
   HasMessage,
   InputContainer,
 } from 'components/styles/components_styles';
+import { useDate } from 'hooks/useDate';
 
 export const Message = ({ messages, handleSend }: IMessage) => {
   const [value, setValue] = React.useState('');
@@ -29,7 +30,7 @@ export const Message = ({ messages, handleSend }: IMessage) => {
   };
 
   const handleKeyPress = event => {
-    if (event.ctrlKey && event.key === 'Enter') {
+    if ((event.ctrlKey && event.key === 'Enter') || event.key === 'Enter') {
       handleSendMessage();
     }
   };
@@ -40,10 +41,12 @@ export const Message = ({ messages, handleSend }: IMessage) => {
         <RoundContainer>
           {messages.map(message => {
             let name = message.user ? message.user : 'Anónimo';
+            let { time } = useDate(message.time);
 
             return (
               <HasMessage key={message.id}>
-                <span>{`${name}: ${message.value}`}</span>
+                <p>{`${name} - ${time}`}</p>
+                <p>{` ${message.value}`}</p>
               </HasMessage>
             );
           })}

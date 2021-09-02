@@ -33,6 +33,7 @@ const Chat = () => {
     const message: IpropsMessage = {
       id: `${new Date().getTime()}`,
       user: localStorage.getItem('userName'),
+      time: new Date().toISOString(),
       value,
     };
 

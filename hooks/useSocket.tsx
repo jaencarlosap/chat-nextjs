@@ -5,14 +5,10 @@ export const useSocket = (url: string) => {
   const [socket, setSocket] = React.useState(null);
 
   React.useEffect(() => {
-    let socketIo = io(url, {
-      transports: ['websocket', 'polling'],
-    });
+    let socketIo = io(url);
 
     if (socketIo && socketIo.disconnected) {
-      socketIo = io(url, {
-        transports: ['websocket', 'polling'],
-      });
+      socketIo = io(url);
     }
 
     setSocket(socketIo);
@@ -21,6 +17,7 @@ export const useSocket = (url: string) => {
       socketIo.disconnect();
       socketIo.close();
     }
+
     return cleanup;
   }, []);
 

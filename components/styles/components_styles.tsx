@@ -85,3 +85,7 @@ export const SendButton = styled.button`
     outline: none;
   }
 `;
+
+export const Title = styled.h1`
+  font-size: 1.5em;
+`;
