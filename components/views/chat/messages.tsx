@@ -16,6 +16,12 @@ import { useDate } from 'hooks/useDate';
 export const Message = ({ messages, handleSend }: IMessage) => {
   const [value, setValue] = React.useState('');
   const refInputText = React.useRef(null);
+  const refRoundContainer = React.useRef(null);
+
+  React.useEffect(() => {
+    refRoundContainer.current.scrollTop =
+      refRoundContainer.current.scrollHeight;
+  });
 
   const handleChange = (event: any) => {
     setValue(event.target.value);
@@ -38,15 +44,17 @@ export const Message = ({ messages, handleSend }: IMessage) => {
   return (
     <Wrapper>
       <Container>
-        <RoundContainer>
-          {messages.map(message => {
-            let name = message.user ? message.user : 'Anónimo';
-            let { time } = useDate(message.time);
+        <RoundContainer ref={refRoundContainer}>
+          {messages.map(({ user, time, id, value }) => {
+            let { time: hour } = useDate(time);
 
             return (
-              <HasMessage key={message.id}>
-                <p>{`${name} - ${time}`}</p>
-                <p>{` ${message.value}`}</p>
+              <HasMessage key={`${id}-${time}`}>
+                <p>{`${user || 'Anónimo'}`}</p>
+                <p>
+                  {value}
+                  <span>{hour}</span>
+                </p>
               </HasMessage>
             );
           })}

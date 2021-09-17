@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Home } from 'components/home';
+import { Home } from 'components/views/home';
 
 const Index = () => {
   return <Home />;

@@ -40,8 +40,25 @@ export const HasMessage = styled.div`
   margin: 10px 0;
   width: max-content;
   border-radius: 0px 5px 5px 5px;
-  padding: 8px;
+  padding: 4px;
   background-color: #ffffff;
+
+  & > p {
+    margin: 2px;
+  }
+
+  & > p:nth-child(1) {
+    font-size: 0.8rem;
+  }
+
+  & > p:nth-child(2) {
+    font-size: 0.9rem;
+
+    & > span {
+      font-size: 0.7rem;
+      margin-left: 10px;
+    }
+  }
 `;
 
 export const InputContainer = styled.div`

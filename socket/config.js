@@ -5,4 +5,4 @@ const io = require('socket.io')(httpServer, {
   },
 });
 
-module.exports = { io, httpServer };
+module.exports = { httpServer, io };
