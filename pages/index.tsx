@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { Home } from 'components/views/home';
+import Chat from 'components/chat'
 
 const Index = () => {
-  return <Home />;
-};
+  return <Chat />
+}
 
-export default Index;
+export default Index

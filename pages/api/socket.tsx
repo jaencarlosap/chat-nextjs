@@ -1,9 +1,31 @@
-import { httpServer, PORT } from 'socket';
+import { Server } from 'socket.io'
 
-export default function handler(_, res) {
-  try {
-    httpServer.listen(PORT);
-  } catch (error) {}
+export const io = new Server({
+  cors: {
+    origin: '*'
+  }
+})
 
-  res.end(`server socket runing on port ${PORT}`);
+const messages = []
+
+const setMessage = message => {
+  messages.push(message)
 }
+
+io.on('connection', socket => {
+  socket.emit('messages', messages)
+
+  socket.on('message', data => {
+    setMessage(data)
+
+    socket.broadcast.emit('message', data)
+  })
+})
+
+const SocketEndPoint = (req, res) => {
+  io.listen(3001)
+
+  res.end(`Welcome to socket api`)
+}
+
+export default SocketEndPoint
