@@ -6,4 +6,11 @@ export interface IHome {
 
 export interface IInput {
   fontSize?: string;
+  width?: string;
+  radius?: string;
+}
+export interface IContainer {
+  flexDirection?: string;
+  align?: string;
+  justify?: string;
 }

@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
-import { IHome, IInput } from 'interfaces/styles'
+import {
+  IContainer,
+  IHome,
+  IInput
+} from 'interfaces/styles'
 
 export const Wrapper = styled.div`
   background-color: #cccccc;
@@ -10,14 +14,14 @@ export const Wrapper = styled.div`
   height: 100vh;
 `
 
-export const Container = styled.div`
+export const Container = styled.div<IContainer>`
   width: 50%;
   height: 100vh;
   display: flex;
   margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: ${props => props.flexDirection || 'column'};
+  align-items: ${props => props.align || 'center'};
+  justify-content: ${props => props.justify || 'center'};
 `
 
 export const RoundContainer = styled.div<IHome>`
@@ -27,13 +31,12 @@ export const RoundContainer = styled.div<IHome>`
   padding: 10px;
   border-radius: 20px;
   background-color: #f5f5f5;
-  ${props =>
-    props.align &&
-    css`
-      align-items: ${props.align};
-      text-align: ${props.align};
-      justify-content: ${props.align};
-    `}
+
+  ${props => props.align && css`
+    align-items: ${props.align};
+    text-align: ${props.align};
+    justify-content: ${props.align};
+  `}
 `
 
 export const HasMessage = styled.div`
@@ -62,6 +65,7 @@ export const HasMessage = styled.div`
 `
 
 export const InputContainer = styled.div`
+  padding: 10px;
   width: 100%;
   margin-top: 5px;
   display: flex;
@@ -69,14 +73,33 @@ export const InputContainer = styled.div`
   justify-content: center;
 `
 
+export const InputTextContainer = styled.div`
+  border-radius: 20px;
+  padding: 3px;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${props => props.theme.screens.sm} {
+    flex-direction: column;
+    
+    & > input{
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
+`
+
 export const InputMessage = styled.input<IInput>`
   width: ${props => props.width || '90%'};
   height: 2em;
   padding: 5px;
-  border-radius: 20px;
+  border-radius: ${props => props.radius || '20px'};
+
   ${props =>
-    props.fontSize &&
-    css`
+    props.fontSize && css`
       font-size: ${props.fontSize};
       text-transform: capitalize;
     `}

@@ -7,16 +7,15 @@ import {
 import { ListMessages } from './listMessages'
 import { InputFields } from './inputFields'
 
-const Chat = () => {
-
+export const Chat = () => {
   return (
     <Wrapper>
-      <Container>
-        <ListMessages />
-        <InputFields />
+      <Container flexDirection="row">
+        <Container>
+          <ListMessages />
+          <InputFields />
+        </Container>
       </Container>
     </Wrapper>
   )
 }
-
-export default Chat
