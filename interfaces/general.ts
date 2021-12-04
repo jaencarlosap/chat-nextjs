@@ -4,8 +4,3 @@ export type IpropsMessage = {
   time: string;
   value: string;
 };
-
-export type IMessage = {
-  messages: IpropsMessage[];
-  handleSend: (value: any) => void;
-};

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
-import { IHome, IInput } from 'interfaces/styles';
+import { IHome, IInput } from 'interfaces/styles'
 
 export const Wrapper = styled.div`
   background-color: #cccccc;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   background-repeat: repeat;
   width: 100%;
   height: 100vh;
-`;
+`
 
 export const Container = styled.div`
   width: 50%;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const RoundContainer = styled.div<IHome>`
   width: ${props => (props.width ? props.width : '95%')};
@@ -34,7 +34,7 @@ export const RoundContainer = styled.div<IHome>`
       text-align: ${props.align};
       justify-content: ${props.align};
     `}
-`;
+`
 
 export const HasMessage = styled.div`
   margin: 10px 0;
@@ -59,7 +59,7 @@ export const HasMessage = styled.div`
       margin-left: 10px;
     }
   }
-`;
+`
 
 export const InputContainer = styled.div`
   width: 100%;
@@ -67,10 +67,10 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const InputMessage = styled.input<IInput>`
-  width: 90%;
+  width: ${props => props.width || '90%'};
   height: 2em;
   padding: 5px;
   border-radius: 20px;
@@ -84,7 +84,7 @@ export const InputMessage = styled.input<IInput>`
   &:focus {
     outline: none;
   }
-`;
+`
 
 export const SendButton = styled.button`
   margin-left: 10px;
@@ -101,8 +101,8 @@ export const SendButton = styled.button`
   &:focus {
     outline: none;
   }
-`;
+`
 
 export const Title = styled.h1`
   font-size: 1.5em;
-`;
+`

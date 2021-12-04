@@ -1,31 +1,37 @@
 import { Server } from 'socket.io'
 
-export const io = new Server({
-  cors: {
-    origin: '*'
-  }
-})
-
 const messages = []
 
 const setMessage = message => {
   messages.push(message)
 }
 
-io.on('connection', socket => {
-  socket.emit('messages', messages)
+const SocketEndPoint = (_, res) => {
+  if (!res.socket.server.io) {
+    const io = new Server(res.socket.server, {
+      cors: {
+        origin: '*'
+      }
+    })
 
-  socket.on('message', data => {
-    setMessage(data)
+    io.on('connection', socket => {
+      socket.broadcast.emit('a user connected')
+      socket.emit('messages', messages)
 
-    socket.broadcast.emit('message', data)
-  })
-})
+      socket.on('message', data => {
+        setMessage(data)
 
-const SocketEndPoint = (req, res) => {
-  io.listen(3001)
+        socket.broadcast.emit('message', data)
+      })
+    })
 
-  res.end(`Welcome to socket api`)
+    res.socket.server.io = io
+    res.end(`socket.io running`)
+  } else {
+    res.end(`socket.io already running`)
+  }
+
+  res.end()
 }
 
 export default SocketEndPoint
