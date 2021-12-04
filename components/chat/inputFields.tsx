@@ -51,7 +51,7 @@ export const InputFields = () => {
           onKeyPress={handleKeyPress}
         />
       </InputTextContainer>
-      <SendButton onClick={handleSendMessage} disabled={!refInputText.current?.value}>
+      <SendButton onClick={handleSendMessage}>
         <Image src="/icons/send.svg" height={30} width={30} />
       </SendButton>
     </InputContainer>

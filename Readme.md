@@ -1,4 +1,4 @@
-#Chat nextjs
+#Chat with NextJs
 
 To start in development mode run this command
 

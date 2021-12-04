@@ -8,19 +8,23 @@ export const useSocket = () => {
   const [messages, setMessages] = useState<IpropsMessage[]>([])
 
   useEffect(() => {
-    fetch('/api/socket').finally(() => {
+    const handleSocket = async () => {
+      await fetch('/api/socket').finally(() => {
 
-      socket.on('message', data => {
-        setMessages(prev => prev.concat(data))
+        socket.on('message', data => {
+          setMessages(prev => prev.concat(data))
+        })
+
+        socket.on('messages', (data) => {
+          if (messages.length == 0) {
+            setMessages(data)
+          }
+        })
+
       })
+    }
 
-      socket.on('messages', (data) => {
-        if (messages.length == 0) {
-          setMessages(data)
-        }
-      })
-
-    })
+    handleSocket()
 
     return () => {
       socket.disconnect()
