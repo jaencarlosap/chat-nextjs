@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled.div<IContainer>`
-  width: 50%;
   height: 100vh;
   display: flex;
   margin: 0 auto;

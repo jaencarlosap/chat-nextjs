@@ -7,10 +7,8 @@ import {
   InputContainer,
   InputTextContainer
 } from 'components/styles'
-import { useSocket } from 'hooks/useSocket'
 
-export const InputFields = () => {
-  const { handleEmmitMessage } = useSocket()
+export const InputFields = ({ handleEmmitMessage }) => {
   const refInputName = React.useRef(null)
   const refInputText = React.useRef(null)
 

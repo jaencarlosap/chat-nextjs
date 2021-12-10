@@ -1,37 +1,26 @@
 import { useEffect, useRef } from 'react'
-import {
-  HasMessage,
-  RoundContainer
-} from 'components/styles'
-import { useDate } from 'hooks/useDate'
-import { useSocket } from 'hooks/useSocket'
 
-export const ListMessages = () => {
-  const { messages } = useSocket()
+import { RoundContainer } from 'components/styles'
+import { Message } from './Messages'
+
+export const ListMessages = ({ messages }) => {
   const refRoundContainer = useRef(null)
 
   useEffect(() => {
-    refRoundContainer.current.scrollTop =
-      refRoundContainer.current.scrollHeight
+    refRoundContainer.current.scrollTop = refRoundContainer.current.scrollHeight
   })
+
+  if (messages.length == 0) {
+    return (
+      <RoundContainer ref={refRoundContainer} >
+        <div>loading...</div>
+      </RoundContainer>
+    )
+  }
 
   return (
     <RoundContainer ref={refRoundContainer} >
-      {
-        messages.map(({ user, time, id, value }) => {
-          const { time: hour } = useDate(time)
-
-          return (
-            <HasMessage key={`${id}-${time}`}>
-              <p>{`${user}`}</p>
-              <p>
-                {value}
-                <span>{hour}</span>
-              </p>
-            </HasMessage>
-          )
-        })
-      }
+      {messages.map((props) => <Message key={`${props.id}-${props.time}`} {...props} />)}
     </RoundContainer >
   )
 }
