@@ -1,9 +1,9 @@
-import React from 'react';
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
+import React from 'react'
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
 
-import { theme } from 'components/styles/theme';
-import { GlobalStyle } from 'components/styles/Global';
+import { theme } from 'components/styles/theme'
+import { GlobalStyle } from 'components/styles/Global'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <GlobalStyle />
       <Component {...pageProps} />
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default MyApp;
+export default MyApp

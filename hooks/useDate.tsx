@@ -1,10 +1,10 @@
 export const useDate = (iso?: string) => {
-  let date = new Date(iso);
-  let time = date.toLocaleString('en-US', {
+  const date = new Date(iso)
+  const time = date.toLocaleString('en-US', {
     hour: 'numeric',
     minute: 'numeric',
-    hour12: true,
-  });
+    hour12: true
+  })
 
-  return { date, time };
-};
+  return { date, time }
+}
