@@ -30,7 +30,6 @@ export const useChat = () => {
     }
 
     socket.emit('message', message)
-    setMessages(prev => prev.concat(message))
   }
 
   return {
