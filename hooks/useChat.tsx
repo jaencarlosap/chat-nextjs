@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import { IpropsMessage } from 'interfaces/general'
 import { useSocket } from './useSocket'
+export interface IpropsMessage {
+  id: string;
+  user: string;
+  time: string;
+  value: string;
+}
 
 export const useChat = () => {
   const socket = useSocket()
@@ -21,12 +26,11 @@ export const useChat = () => {
     handleGetMenssages()
   }, [])
 
-  const handleEmmitMessage = ({ user, value }) => {
+  const handleEmmitMessage = (props) => {
     const message: IpropsMessage = {
       id: socket.id,
       time: new Date().toISOString(),
-      user,
-      value
+      ...props
     }
 
     socket.emit('message', message)
