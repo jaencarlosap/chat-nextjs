@@ -1,20 +1,20 @@
 import React from 'react'
-import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
+import {
+	Wrapper,
+	theme,
+	GlobalStyle
+} from 'components/styles'
 
-import { theme } from 'components/styles/theme'
-import { GlobalStyle } from 'components/styles/Global'
-import { Wrapper } from 'components/styles'
-
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Wrapper>
-        <Component {...pageProps} />
-      </Wrapper>
-    </ThemeProvider>
-  )
+const MyApp = ({ Component, pageProps }) => {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			<Wrapper>
+				<Component {...pageProps} />
+			</Wrapper>
+		</ThemeProvider>
+	)
 }
 
 export default MyApp

@@ -1,52 +1,53 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "no-console": 2,
-    "quotes": [
-      2,
-      "single",
-      {
-        "avoidEscape": true,
-        "allowTemplateLiterals": true
-      }
-    ],
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }
-    ],
-    "no-multi-spaces": [
-      "error",
-      {
-        "exceptions": {
-          "BinaryExpression": true
-        }
-      }
-    ],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1,
-        "maxBOF": 1
-      }
-    ],
-    "semi": [
-      "error",
-      "never"
-    ]
-  }
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@next/next/recommended"
+	],
+	"rules": {
+		"no-console": 2,
+		"quotes": [
+			2,
+			"single",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": true
+			}
+		],
+		"comma-dangle": [
+			"error",
+			{
+				"arrays": "never",
+				"objects": "never",
+				"imports": "never",
+				"exports": "never",
+				"functions": "never"
+			}
+		],
+		"no-multi-spaces": [
+			"error",
+			{
+				"exceptions": {
+					"BinaryExpression": true
+				}
+			}
+		],
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1,
+				"maxBOF": 1
+			}
+		],
+		"semi": [
+			"error",
+			"never"
+		]
+	}
 }

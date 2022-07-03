@@ -101,7 +101,7 @@ export const InputMessage = styled.input<HTMLInputElement | React.CSSProperties>
   border-radius: ${props => props.borderRadius || '20px'};
 
   ${props =>
-    props.fontSize && css`
+		props.fontSize && css`
       font-size: ${props.fontSize};
       text-transform: capitalize;
     `}
