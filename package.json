@@ -1,40 +1,40 @@
 {
-  "dependencies": {
-    "next": "^12.0.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "socket.io": "^4.4.1",
-    "socket.io-client": "^4.1.3",
-    "styled-components": "^5.3.1"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "name": "chat-nextjs",
-  "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/janper231/socket_next.git"
-  },
-  "keywords": [],
-  "author": "jaen carlos <jeancarloss659@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/janper231/socket_next/issues"
-  },
-  "homepage": "https://github.com/janper231/socket_next#readme",
-  "description": "",
-  "devDependencies": {
-    "@types/next": "^9.0.0",
-    "@types/react": "^17.0.19",
-    "@types/styled-components": "^5.1.13",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
-    "babel-plugin-styled-components": "^1.13.2",
-    "eslint": "^8.9.0",
-    "typescript": "^4.4.2"
-  }
+	"name": "chat-nextjs",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/janper231/socket_next.git"
+	},
+	"keywords": [],
+	"author": "jaen carlos <jeancarloss659@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/janper231/socket_next/issues"
+	},
+	"homepage": "https://github.com/janper231/socket_next#readme",
+	"description": "",
+	"dependencies": {
+		"next": "^12.2.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"socket.io": "^4.4.1",
+		"socket.io-client": "^4.1.3",
+		"styled-components": "^5.3.1"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"devDependencies": {
+		"@types/next": "^9.0.0",
+		"@types/react": "^17.0.19",
+		"@types/styled-components": "^5.1.13",
+		"@typescript-eslint/eslint-plugin": "^5.5.0",
+		"@typescript-eslint/parser": "^5.5.0",
+		"babel-plugin-styled-components": "^1.13.2",
+		"eslint": "^8.9.0",
+		"typescript": "^4.4.2"
+	}
 }
